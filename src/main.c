@@ -1,6 +1,9 @@
-#include "stock.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-void main() {
+#include "lcoffee/stock.h"
+
+int main(int argc, char** argv) {
   stock_t* stock = stock_init();
   operation_t* op = operation_init(OP_INVENTORY);
   operation_set(op, COFFEE_RISTRETTO_FORTE, 1);
@@ -13,12 +16,13 @@ void main() {
   stock_update(stock, op2);
   operation_delete(op2);
 
-  int total = 0;
-  for (i = 0; i < COFFEE_NB_KINDS; i++) {
-    total += stock->items[i];
+  for (size_t i = 0; i < COFFEE_NB_KINDS; i++) {
+    if (stock->items[i] != 0) {
+      printf("- %s: %d\n", coffee_title(i), stock->items[i]);
+    }
   }
 
-  printf("Total stock: %d", total);
-
   stock_delete(stock);
+
+  return 0;
 }

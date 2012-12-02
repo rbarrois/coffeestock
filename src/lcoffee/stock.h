@@ -22,16 +22,19 @@ enum coffeekind {
 
 typedef struct _operation {
   enum opkind kind;
-  int[COFFEE_NB_KINDS] items;
+  int* items;
 } operation_t;
 
 typedef struct _stock {
-  int[COFFEE_NB_KINDS] items;
+  int* items;
 } stock_t;
 
 
+const char* coffee_title(enum coffeekind kind);
+
+
 stock_t* stock_init();
-void stock_update(stock_t* stock, operation_t* operation);
+void stock_update(stock_t* stock, const operation_t* operation);
 void stock_delete(stock_t*);
 
 

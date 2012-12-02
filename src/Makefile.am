@@ -2,5 +2,5 @@ AM_CFLAGS=-ggdb -W -Wall -Wno-unused-parameter -Wno-unused-function -Wno-unused-
 
 bin_PROGRAMS = main
 main_SOURCES = main.c
-#main_LDADD = common/libcommon.a hashtab/libhashtab.a
-#SUBDIRS = common hashtab
+main_LDADD = lcoffee/libcoffee.a
+SUBDIRS = lcoffee
