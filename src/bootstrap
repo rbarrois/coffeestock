@@ -1,0 +1,17 @@
+#!/bin/sh
+
+function run()
+{
+  echo "Running $*"
+  $* && echo "Done"
+}
+
+run aclocal
+run autoconf
+run autoheader
+run automake --add-missing
+
+if [ "x$1" == "x--build" ]; then
+  run ./configure
+  run make
+fi

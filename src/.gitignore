@@ -1,0 +1,27 @@
+# Temporary files
+.*.swp
+*.o
+*~
+
+# Binaries
+cfmgrtest
+main
+
+# libraries
+common/libcommon.a
+
+# autotools
+.deps
+Makefile
+Makefile.in
+aclocal.m4
+autom4te.cache/
+autoscan-*.log
+config.h
+config.log
+config.status
+configure
+depcomp
+install-sh
+missing
+stamp-h1
