@@ -4,11 +4,10 @@
 *~
 
 # Binaries
-cfmgrtest
 main
 
 # libraries
-common/libcommon.a
+*.a
 
 # autotools
 .deps
