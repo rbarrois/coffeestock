@@ -2,6 +2,7 @@
 
 #include "lcoffee/stock.h"
 #include "lcoffee/tools.h"
+#include "lcoffee/store.h"
 
 int main(int argc, char** argv) {
   stock_t* stock = stock_init();
@@ -27,6 +28,10 @@ int main(int argc, char** argv) {
   printf("Stock:\n");
   printf("======\n");
   dump_stock(stock);
+
+  FILE* f = fopen("stock.out", "w");
+  write_stock(f, stock);
+  fclose(f);
 
   stock_delete(stock);
 
