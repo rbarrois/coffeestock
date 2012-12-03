@@ -24,11 +24,16 @@ AC_C_INLINE
 AC_TYPE_SIZE_T
 AC_PROG_CC_C99
 
+# Unittest-related code
+AM_PATH_CHECK()
+AM_PROG_CC_C_O
+
 # Checks for library functions.
 AC_FUNC_MALLOC
 
 AC_CONFIG_FILES([Makefile
                  src/Makefile
-                 src/lcoffee/Makefile])
+                 src/lcoffee/Makefile
+                 tests/Makefile])
 
 AC_OUTPUT
