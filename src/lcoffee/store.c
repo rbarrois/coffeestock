@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 #include "stock.h"
 #include "store.h"
@@ -28,6 +29,27 @@ int write_stock(FILE* file, const stock_t* stock) {
 
   return written;
 }
+
+
+enum opkind _read_opkind(const char* kind) {
+  for (size_t i = 0; i < OP_NB; ++i) {
+    if (strncmp(kind, OPERATION_NAMES[i][PPRINT_ID], OPERATION_ID_LEN)) {
+      return i;
+    }
+  }
+  return OP_NB;
+}
+
+
+enum coffeekind _read_coffekind(const char* kind) {
+  for (size_t i = 0; i < COFFEE_NB_KINDS; ++i) {
+    if (strncmp(kind, COFFEE_NAMES[i][PPRINT_ID], COFFEE_ID_LEN)) {
+      return i;
+    }
+  }
+  return COFFEE_NB_KINDS;
+}
+
 
 int read_operation(FILE* file, operation_t* operation) {
 

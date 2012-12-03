@@ -12,31 +12,14 @@ const char* coffee_title(enum coffeekind kind, enum pprintlevel level) {
   assert(0 <= kind < COFFEE_NB_KINDS);
   assert(PPRINT_ID <= level <= PPRINT_LONG);
 
-  const char* titles[][COFFEE_NB_KINDS] = {
-    {"RF", "Rist F", "Ristretto Forte"},
-    {"RI", "Rist I", "Ristretto Origin India"},
-    {"EF", "Espr F", "Espresso Forte"},
-    {"EL", "Espr L", "Espresso Leggero"},
-    {"LF", "Lngo F", "Lungo Forte"},
-    {"LL", "Lngo L", "Lungo Leggero"},
-    {"DE", "Deca E", "Decaffeinato Espresso"},
-    {"DL", "Deca L", "Decaffeinato Lungo"},
-  };
-
-  return titles[kind][level];
+  return COFFEE_NAMES[kind][level];
 }
 
 const char* operation_title(enum opkind kind, enum pprintlevel level) {
   assert(0 <= kind < OP_NB);
   assert(PPRINT_ID <= level <= PPRINT_LONG);
 
-  const char* titles[][OP_NB] = {
-    {"INV", "=", "Inv"},
-    {"BUY", "+", "Buy"},
-    {"SEL", "-", "Sell"},
-  };
-
-  return titles[kind][level];
+  return OPERATION_NAMES[kind][level];
 }
 
 /** Stock

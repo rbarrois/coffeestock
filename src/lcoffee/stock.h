@@ -1,31 +1,10 @@
 #ifndef __stock_h
 #define __stock_h
 
-#include <stdbool.h>
+#include "enums.h"
 
 /** Operations
  */
-
-enum opkind {
-  OP_INVENTORY,
-  OP_BUY,
-  OP_SELL,
-
-  OP_NB  // For lookups
-};
-
-enum coffeekind {
-  COFFEE_RISTRETTO_FORTE,
-  COFFEE_RISTRETTO_INDIA,
-  COFFEE_ESPRESSO_FORTE,
-  COFFEE_ESPRESSO_LEGGERO,
-  COFFEE_LUNGO_FORTE,
-  COFFEE_LUNGO_LEGGERO,
-  COFFEE_DECAFFEINATO_ESPRESSO,
-  COFFEE_DECAFFEINATO_LUNGO,
-
-  COFFEE_NB_KINDS  // For lookups
-};
 
 typedef struct _operation {
   enum opkind kind;
