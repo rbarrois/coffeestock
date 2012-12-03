@@ -114,6 +114,12 @@ void operation_set(operation_t* operation, enum coffeekind coffee, int amount) {
   operation->items[coffee] = amount;
 }
 
+void operation_reset(operation_t* operation) {
+  for (size_t i = 0; i < COFFEE_NB_KINDS; ++i) {
+    operation->items[i] = 0;
+  }
+}
+
 void operation_delete(operation_t* operation) {
   free(operation->items);
   free(operation);

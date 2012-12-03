@@ -14,6 +14,7 @@ typedef struct _operation {
 operation_t* operation_init(enum opkind kind);
 void operation_set(operation_t* operation, enum coffeekind coffee, int amount);
 void operation_delete(operation_t*);
+void operation_reset(operation_t*);
 
 
 /** Stock
