@@ -40,7 +40,7 @@ enum pprintlevel {
 const char* coffee_title(enum coffeekind kind, enum pprintlevel level);
 const char* operation_title(enum opkind kind, enum pprintlevel level);
 
-
-
+enum coffeekind read_coffeekind(const char*);
+enum opkind read_opkind(const char*);
 
 #endif

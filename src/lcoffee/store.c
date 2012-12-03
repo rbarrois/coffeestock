@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 
 #include "stock.h"
 #include "store.h"

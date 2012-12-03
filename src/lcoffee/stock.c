@@ -1,6 +1,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 
 #include "stock.h"
 
@@ -21,6 +22,26 @@ const char* operation_title(enum opkind kind, enum pprintlevel level) {
 
   return OPERATION_NAMES[kind][level];
 }
+
+enum opkind read_opkind(const char* kind) {
+  for (size_t i = 0; i < OP_NB; ++i) {
+    if (strncmp(kind, OPERATION_NAMES[i][PPRINT_ID], OPERATION_ID_LEN) == 0) {
+      return i;
+    }
+  }
+  return OP_NB;
+}
+
+
+enum coffeekind read_coffekind(const char* kind) {
+  for (size_t i = 0; i < COFFEE_NB_KINDS; ++i) {
+    if (strncmp(kind, COFFEE_NAMES[i][PPRINT_ID], COFFEE_ID_LEN) == 0) {
+      return i;
+    }
+  }
+  return COFFEE_NB_KINDS;
+}
+
 
 /** Stock
  */

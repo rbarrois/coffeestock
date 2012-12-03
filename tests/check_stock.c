@@ -91,6 +91,19 @@ START_TEST (stock_apply_many_operation)
 }
 END_TEST
 
+START_TEST (test_coffee_title)
+{
+  const char* ri = coffee_title(COFFEE_RISTRETTO_INDIA, PPRINT_SHORT);
+  fail_unless(strncmp(ri, "Rist I", 6) == 0, NULL);
+}
+END_TEST
+
+START_TEST (test_read_opkind)
+{
+  enum opkind kind = read_opkind("BUY");
+  fail_unless(kind == OP_BUY, NULL);
+}
+END_TEST
 
 Suite * stock_suite(void)
 {
@@ -107,6 +120,11 @@ Suite * stock_suite(void)
   tcase_add_test(tc_stock, stock_apply_operation);
   tcase_add_test(tc_stock, stock_apply_many_operation);
   suite_add_tcase(s, tc_stock);
+
+  TCase *tc_title = tcase_create("title");
+  tcase_add_test(tc_title, test_coffee_title);
+  tcase_add_test(tc_title, test_read_opkind);
+  suite_add_tcase(s, tc_title);
 
   return s;
 }
