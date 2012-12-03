@@ -1,6 +1,8 @@
 #ifndef __stock_h
 #define __stock_h
 
+#include <stdbool.h>
+
 enum opkind {
   OP_INVENTORY,
   OP_BUY,
@@ -30,7 +32,8 @@ typedef struct _stock {
 } stock_t;
 
 
-const char* coffee_title(enum coffeekind kind);
+const char* coffee_title(enum coffeekind kind, bool abbr);
+const char* operation_title(enum opkind kind, bool abbr);
 
 
 stock_t* stock_init();

@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdbool.h>
 
 #include "stock.h"
 
@@ -6,29 +7,41 @@
 /** Coffee
  */
 
-const char* coffee_title(enum coffeekind kind) {
+const char* coffee_title(enum coffeekind kind, bool abbr) {
   switch (kind) {
     case COFFEE_RISTRETTO_FORTE:
-      return "Ristretto Forte";
+      return abbr ? "Rist F" : "Ristretto Forte";
     case COFFEE_RISTRETTO_INDIA:
-      return "Ristretto Origin India";
+      return abbr ? "Rist I" : "Ristretto Origin India";
     case COFFEE_ESPRESSO_FORTE:
-      return "Espresso Forte";
+      return abbr ? "Espr F" : "Espresso Forte";
     case COFFEE_ESPRESSO_LEGGERO:
-      return "Espresso Leggero";
+      return abbr ? "Espr L" : "Espresso Leggero";
     case COFFEE_LUNGO_FORTE:
-      return "Lungo Forte";
+      return abbr ? "Lngo F" : "Lungo Forte";
     case COFFEE_LUNGO_LEGGERO:
-      return "Lungo Leggero";
+      return abbr ? "Lngo L" : "Lungo Leggero";
     case COFFEE_DECAFFEINATO_ESPRESSO:
-      return "Decaffeinato Espresso";
+      return abbr ? "Deca E" : "Decaffeinato Espresso";
     case COFFEE_DECAFFEINATO_LUNGO:
-      return "Decaffeinato Lungo";
+      return abbr ? "Deca L" : "Decaffeinato Lungo";
     default:
-      return "INVALID";
+      return abbr ? "XX" : "INVALID";
   }
 }
 
+const char* operation_title(enum opkind kind, bool abbr) {
+  switch (kind) {
+    case OP_INVENTORY:
+      return abbr ? "=" : "Inv";
+    case OP_BUY:
+      return abbr ? "+" : "Buy";
+    case OP_SELL:
+      return abbr ? ":" : "Sell";
+    default:
+      return abbr ? "X" : "ERR";
+  }
+}
 
 /** Stock
  */
