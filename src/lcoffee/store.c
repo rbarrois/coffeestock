@@ -30,27 +30,31 @@ int write_stock(FILE* file, const stock_t* stock) {
 }
 
 
-enum opkind _read_opkind(const char* kind) {
-  for (size_t i = 0; i < OP_NB; ++i) {
-    if (strncmp(kind, OPERATION_NAMES[i][PPRINT_ID], OPERATION_ID_LEN)) {
-      return i;
-    }
-  }
-  return OP_NB;
-}
-
-
-enum coffeekind _read_coffekind(const char* kind) {
-  for (size_t i = 0; i < COFFEE_NB_KINDS; ++i) {
-    if (strncmp(kind, COFFEE_NAMES[i][PPRINT_ID], COFFEE_ID_LEN)) {
-      return i;
-    }
-  }
-  return COFFEE_NB_KINDS;
-}
-
-
+/** Read one operation from a file.
+ * Returns 1 on success, <= 0 otherwise.
+ */
 int read_operation(FILE* file, operation_t* operation) {
+  int reads;
+  int amount = 0;
+  char opkind[OPERATION_ID_LEN + 1];
+  char coffeekind[COFFEE_ID_LEN + 1];
+  char c;
 
-  return 0;
+  reads = fscanf(file, "%[A-Z]:", opkind);
+  if (reads != 1) {
+    return reads > 0 ? 0 : reads;
+  }
+
+  operation->kind = read_opkind(opkind);
+
+  while ((c = fgetc(file)) != '\n') {
+    ungetc(c, file);
+    reads = fscanf(file, "%[A-Z]=%d;", coffeekind, &amount);
+    if (reads != 2) {
+      return reads > 0 ? 0 : reads;
+    }
+    operation_set(operation, read_coffekind(coffeekind), amount);
+  }
+
+  return 1;
 }
