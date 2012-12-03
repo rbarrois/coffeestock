@@ -17,7 +17,7 @@ enum coffeekind {
   COFFEE_NB_KINDS  // For lookups
 };
 
-extern const char* COFFEE_NAMES[][COFFEE_NB_KINDS];
+extern const char const* COFFEE_NAMES[][COFFEE_NB_KINDS];
 
 // Length of Coffee identifiers
 #define COFFEE_ID_LEN 2
@@ -34,7 +34,7 @@ enum opkind {
   OP_NB  // For lookups
 };
 
-extern const char* OPERATION_NAMES[][OP_NB];
+extern const char const* OPERATION_NAMES[][OP_NB];
 
 // Length of operation identifiers
 #define OPERATION_ID_LEN 3

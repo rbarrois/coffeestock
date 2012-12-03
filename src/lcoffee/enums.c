@@ -1,6 +1,6 @@
 #include "enums.h"
 
-const char* COFFEE_NAMES[][COFFEE_NB_KINDS] = {
+const char const* COFFEE_NAMES[][COFFEE_NB_KINDS] = {
   // ID, Short, Long
   {"RF", "Rist F", "Ristretto Forte"},
   {"RI", "Rist I", "Ristretto Origin India"},
@@ -12,7 +12,7 @@ const char* COFFEE_NAMES[][COFFEE_NB_KINDS] = {
   {"DL", "Deca L", "Decaffeinato Lungo"},
 };
 
-const char* OPERATION_NAMES[][OP_NB] = {
+const char const* OPERATION_NAMES[][OP_NB] = {
   // ID, Short, Long
   {"INV", "=", "Inv"},
   {"BUY", "+", "Buy"},
