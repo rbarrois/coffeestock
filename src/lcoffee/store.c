@@ -6,10 +6,10 @@
 
 int write_operation(FILE* file, const operation_t* operation) {
   int written = 0;
-  written += fprintf(file, "%s:", operation_title(operation->kind, false));
+  written += fprintf(file, "%s:", operation_title(operation->kind, PPRINT_ID));
   for (size_t i = 0; i < COFFEE_NB_KINDS; ++i) {
     if (operation->items[i] != 0) {
-      written += fprintf(file, "%s=%d;", coffee_title(i, true), operation->items[i]);
+      written += fprintf(file, "%s=%d;", coffee_title(i, PPRINT_ID), operation->items[i]);
     }
   }
   written += fprintf(file, "\n");
@@ -30,5 +30,6 @@ int write_stock(FILE* file, const stock_t* stock) {
 }
 
 int read_operation(FILE* file, operation_t* operation) {
+
   return 0;
 }

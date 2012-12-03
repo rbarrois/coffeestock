@@ -8,14 +8,14 @@
 void dump_stock(const stock_t* stock) {
   for (size_t i = 0; i < COFFEE_NB_KINDS; i++) {
     if (stock->items[i] != 0) {
-      printf("- %s: %d\n", coffee_title(i, false), stock->items[i]);
+      printf("- %s: %d\n", coffee_title(i, PPRINT_LONG), stock->items[i]);
     }
   }
 }
 
 
 void dump_operation(const operation_t* operation) {
-  printf("%s: ", operation_title(operation->kind, false));
+  printf("%s: ", operation_title(operation->kind, PPRINT_LONG));
 
   bool printed = false;
   for (size_t i = 0; i < COFFEE_NB_KINDS; i++) {
@@ -26,7 +26,7 @@ void dump_operation(const operation_t* operation) {
     if (printed) {
       printf(", ");
     }
-    printf("%s %d", coffee_title(i, true), operation->items[i]);
+    printf("%s => %d", coffee_title(i, PPRINT_SHORT), operation->items[i]);
     printed = true;
   }
   printf("\n");

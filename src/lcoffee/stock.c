@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
@@ -7,40 +8,35 @@
 /** Coffee
  */
 
-const char* coffee_title(enum coffeekind kind, bool abbr) {
-  switch (kind) {
-    case COFFEE_RISTRETTO_FORTE:
-      return abbr ? "Rist F" : "Ristretto Forte";
-    case COFFEE_RISTRETTO_INDIA:
-      return abbr ? "Rist I" : "Ristretto Origin India";
-    case COFFEE_ESPRESSO_FORTE:
-      return abbr ? "Espr F" : "Espresso Forte";
-    case COFFEE_ESPRESSO_LEGGERO:
-      return abbr ? "Espr L" : "Espresso Leggero";
-    case COFFEE_LUNGO_FORTE:
-      return abbr ? "Lngo F" : "Lungo Forte";
-    case COFFEE_LUNGO_LEGGERO:
-      return abbr ? "Lngo L" : "Lungo Leggero";
-    case COFFEE_DECAFFEINATO_ESPRESSO:
-      return abbr ? "Deca E" : "Decaffeinato Espresso";
-    case COFFEE_DECAFFEINATO_LUNGO:
-      return abbr ? "Deca L" : "Decaffeinato Lungo";
-    default:
-      return abbr ? "XX" : "INVALID";
-  }
+const char* coffee_title(enum coffeekind kind, enum pprintlevel level) {
+  assert(0 <= kind < COFFEE_NB_KINDS);
+  assert(PPRINT_ID <= level <= PPRINT_LONG);
+
+  const char* titles[][COFFEE_NB_KINDS] = {
+    {"RF", "Rist F", "Ristretto Forte"},
+    {"RI", "Rist I", "Ristretto Origin India"},
+    {"EF", "Espr F", "Espresso Forte"},
+    {"EL", "Espr L", "Espresso Leggero"},
+    {"LF", "Lngo F", "Lungo Forte"},
+    {"LL", "Lngo L", "Lungo Leggero"},
+    {"DE", "Deca E", "Decaffeinato Espresso"},
+    {"DL", "Deca L", "Decaffeinato Lungo"},
+  };
+
+  return titles[kind][level];
 }
 
-const char* operation_title(enum opkind kind, bool abbr) {
-  switch (kind) {
-    case OP_INVENTORY:
-      return abbr ? "=" : "Inv";
-    case OP_BUY:
-      return abbr ? "+" : "Buy";
-    case OP_SELL:
-      return abbr ? ":" : "Sell";
-    default:
-      return abbr ? "X" : "ERR";
-  }
+const char* operation_title(enum opkind kind, enum pprintlevel level) {
+  assert(0 <= kind < OP_NB);
+  assert(PPRINT_ID <= level <= PPRINT_LONG);
+
+  const char* titles[][OP_NB] = {
+    {"INV", "=", "Inv"},
+    {"BUY", "+", "Buy"},
+    {"SEL", "-", "Sell"},
+  };
+
+  return titles[kind][level];
 }
 
 /** Stock
