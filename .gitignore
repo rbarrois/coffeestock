@@ -3,6 +3,9 @@
 *.o
 *~
 
+# Misc data
+*.out
+
 # Binaries
 main
 

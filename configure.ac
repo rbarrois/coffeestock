@@ -7,8 +7,8 @@ AC_INIT([coffee], [0.1.0], [xelnor_coffee@xelnor.net])
 # Enable checks in Makefile.am
 AM_INIT_AUTOMAKE([-Wall -Werror])
 
-AC_CONFIG_SRCDIR([main.c])
-AC_CONFIG_HEADERS([config.h])
+AC_CONFIG_SRCDIR([src/main.c])
+AC_CONFIG_HEADERS([src/config.h])
 
 # Checks for programs.
 AC_PROG_CC
@@ -28,6 +28,7 @@ AC_PROG_CC_C99
 AC_FUNC_MALLOC
 
 AC_CONFIG_FILES([Makefile
-                 lcoffee/Makefile])
+                 src/Makefile
+                 src/lcoffee/Makefile])
 
 AC_OUTPUT
