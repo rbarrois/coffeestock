@@ -4,7 +4,7 @@
 #include "lcoffee/tools.h"
 #include "lcoffee/store.h"
 
-int main(int argc, char** argv) {
+int main() {
   stock_t* stock = stock_init();
 
   printf("History:\n");
