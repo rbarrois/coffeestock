@@ -26,7 +26,7 @@ void dump_operation(const operation_t* operation) {
     if (printed) {
       printf(", ");
     }
-    printf("%s => %d", coffee_title(i, PPRINT_SHORT), operation->items[i]);
+    printf("%s => %d", coffee_title(i, PPRINT_LONG), operation->items[i]);
     printed = true;
   }
   printf("\n");
