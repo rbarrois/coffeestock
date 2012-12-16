@@ -3,6 +3,9 @@
 *.o
 *~
 
+# Example files
+*.coffee
+
 # Misc data
 *.out
 
