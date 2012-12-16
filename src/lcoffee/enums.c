@@ -2,7 +2,7 @@
 
 const char const* COFFEE_NAMES[][COFFEE_NB_KINDS] = {
   // ID, Short, Long
-  {"RF", "Rist F", "Ristretto Forte"},
+  {"RR", "Rist R", "Ristretto"},
   {"RI", "Rist I", "Ristretto Origin India"},
   {"EF", "Espr F", "Espresso Forte"},
   {"EL", "Espr L", "Espresso Leggero"},
