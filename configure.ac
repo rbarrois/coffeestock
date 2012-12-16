@@ -25,7 +25,7 @@ AC_TYPE_SIZE_T
 AC_PROG_CC_C99
 
 # Unittest-related code
-AM_PATH_CHECK()
+PKG_CHECK_MODULES([CHECK], [check >= 0.9.4])
 AM_PROG_CC_C_O
 
 # Checks for library functions.
