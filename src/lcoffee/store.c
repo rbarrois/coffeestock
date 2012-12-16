@@ -53,7 +53,7 @@ int read_operation(FILE* file, operation_t* operation) {
     if (reads != 2) {
       return reads > 0 ? 0 : reads;
     }
-    operation_set(operation, read_coffekind(coffeekind), amount);
+    operation_set(operation, read_coffeekind(coffeekind), amount);
   }
 
   return 1;

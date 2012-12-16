@@ -105,6 +105,20 @@ START_TEST (test_read_opkind)
 }
 END_TEST
 
+START_TEST (test_read_coffeekind)
+{
+    enum coffeekind kind = read_coffeekind("RR");
+    fail_unless(kind == COFFEE_RISTRETTO_FORTE, NULL);
+}
+END_TEST
+
+START_TEST (test_read_unknown_coffeekind)
+{
+    enum coffeekind kind = read_coffeekind("AA");
+    fail_unless(kind == COFFEE_NB_KINDS, NULL);
+}
+END_TEST
+
 Suite * stock_suite(void)
 {
   Suite *s = suite_create("stock");
@@ -124,6 +138,8 @@ Suite * stock_suite(void)
   TCase *tc_title = tcase_create("title");
   tcase_add_test(tc_title, test_coffee_title);
   tcase_add_test(tc_title, test_read_opkind);
+  tcase_add_test(tc_title, test_read_coffeekind);
+  tcase_add_test(tc_title, test_read_unknown_coffeekind);
   suite_add_tcase(s, tc_title);
 
   return s;

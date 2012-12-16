@@ -33,7 +33,7 @@ enum opkind read_opkind(const char* kind) {
 }
 
 
-enum coffeekind read_coffekind(const char* kind) {
+enum coffeekind read_coffeekind(const char* kind) {
   for (size_t i = 0; i < COFFEE_NB_KINDS; ++i) {
     if (strncmp(kind, COFFEE_NAMES[i][PPRINT_ID], COFFEE_ID_LEN) == 0) {
       return i;
