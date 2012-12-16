@@ -2,6 +2,7 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #include "lcoffee/stock.h"
@@ -21,11 +22,11 @@ int usage(const char* pname, int exit) {
 int main(int argc, char** argv) {
 
   if (argc <= 1) {
-    return usage(argv[0], 1);
+    return usage(argv[0], EXIT_FAILURE);
   }
 
   if (strncmp(argv[1], "-h", 3) == 0 || strncmp(argv[1], "--help", 7) == 0) {
-    return usage(argv[0], 0);
+    return usage(argv[0], EXIT_SUCCESS);
   }
 
   FILE* file = fopen(argv[1], "r");
@@ -39,5 +40,5 @@ int main(int argc, char** argv) {
 
   operation_delete(op);
 
-  return 0;
+  return EXIT_SUCCESS;
 }
