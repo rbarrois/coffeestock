@@ -11,6 +11,13 @@
 
 # Binaries
 main
+src/main
+src/main2
+src/buy
+src/sell
+src/inventory
+src/history
+src/state
 
 # libraries
 *.a
