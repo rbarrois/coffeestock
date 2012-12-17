@@ -1,6 +1,6 @@
 AM_CFLAGS=-ggdb -W -Wall -Wno-unused-parameter -Wno-unused-function -Wno-unused-label -Wpointer-arith -Wformat -Wimplicit -Wreturn-type -Wsign-compare -Wno-multichar -Winit-self -Wextra -Werror
 
-bin_PROGRAMS = main main2 history state buy sell inventory
+bin_PROGRAMS = main main2 history state buy sell inventory coffee
 #main_SOURCES = main.c
 main_LDADD = lcoffee/libcoffee.a
 
@@ -21,5 +21,8 @@ sell_LDADD = lcoffee/libcoffee.a
 
 inventory_SOURCES = inventory.c parse.h parse.c
 inventory_LDADD = lcoffee/libcoffee.a
+
+coffee_SOURCES = coffee.c actions.h actions.c parse.h parse.c cli.h cli.c
+coffee_LDADD = lcoffee/libcoffee.a
 
 SUBDIRS = lcoffee

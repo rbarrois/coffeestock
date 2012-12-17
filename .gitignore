@@ -18,6 +18,7 @@ src/sell
 src/inventory
 src/history
 src/state
+src/coffee
 
 # libraries
 *.a
